@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @page { size: A4; margin: 2cm; }
+        body { font-family: Helvetica, sans-serif; font-size: 12px; }
+        h1 { text-align: center; color: #2c3e50; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #bdc3c7; padding: 8px; text-align: left; }
+        th { background-color: #ecf0f1; font-weight: bold; }
+        .footer { text-align: center; margin-top: 30px; font-size: 10px; color: #7f8c8d; }
+    </style>
+</head>
+<body>
+    <h1>Hilandería Senatex - Reporte de Equipos</h1>
+    <p>Fecha de generación: {% now "d/m/Y H:i" %}</p>
+
+    <h2>Listado de Equipos</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Marca</th>
+                <th>Número de Serie</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for equipo in equipos %}
+            <tr>
+                <td>{{ equipo.nombre }}</td>
+                <td>{{ equipo.marca }}</td>
+                <td>{{ equipo.numero_serie }}</td>
+                <td>{{ equipo.estado }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="footer">
+        Sistema de Gestión de Mantenimiento - Senatex CMMS
+    </div>
+</body>
+</html>
